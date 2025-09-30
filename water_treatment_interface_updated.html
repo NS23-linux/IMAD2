@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Note Taking App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Note Taking App</h2>
+  <table id="noteTable">
+    <thead>
+      <tr>
+        <th>Mesure</th>
+        <th>Valeur Nominale</th>
+        <th>2025-09-15</th>
+        <th>2025-09-16</th>
+        <th>2025-09-17</th>
+        <th>2025-09-18</th>
+        <th>2025-09-19</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example row, duplicate as needed -->
+      <tr>
+        <td>Volume d'eau brute m³</td>
+        <td>Nominal Value</td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+        <td><input type="number"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button id="exportBtn">Export to Excel</button>
+  <script src="app.js"></script>
+</body>
+</html>
