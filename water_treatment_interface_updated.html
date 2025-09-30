@@ -2,37 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Note Taking App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Treatment Data Entry</title>
+  <link rel="stylesheet" href="water_treatment_styles_updated.css">
 </head>
 <body>
-  <h2>Note Taking App</h2>
-  <table id="noteTable">
-    <thead>
-      <tr>
-        <th>Mesure</th>
-        <th>Valeur Nominale</th>
-        <th>2025-09-15</th>
-        <th>2025-09-16</th>
-        <th>2025-09-17</th>
-        <th>2025-09-18</th>
-        <th>2025-09-19</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Example row, duplicate as needed -->
-      <tr>
-        <td>Volume d'eau brute m³</td>
-        <td>Nominal Value</td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-        <td><input type="number"></td>
-      </tr>
-    </tbody>
-  </table>
-  <button id="exportBtn">Export to Excel</button>
-  <script src="app.js"></script>
+  <div class="container">
+    <h1>Water Treatment Data Entry System</h1>
+    
+    <div class="controls">
+      <button id="addRowBtn" class="btn btn-primary">Add New Row</button>
+      <button id="exportBtn" class="btn btn-success">Export to Excel</button>
+      <button id="clearBtn" class="btn btn-warning">Clear All Data</button>
+    </div>
+
+    <div class="table-container">
+      <table id="dataTable">
+        <thead>
+          <tr>
+            <th class="category-col">Category</th>
+            <th class="date-col">Date</th>
+            <th class="value-col">Value A</th>
+            <th class="value-col">Value B</th>
+            <th class="value-col">Value C</th>
+            <th class="value-col">Value D</th>
+            <th class="value-col">Value E</th>
+            <th class="total-col">Total</th>
+            <th class="unit-col">Unit</th>
+            <th class="actions-col">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Sample rows will be added here -->
+          <tr data-row-id="1">
+            <td><input type="text" placeholder="Enter category" class="category-input"></td>
+            <td><input type="date" class="date-input"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="a"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="b"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="c"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="d"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="e"></td>
+            <td class="total-cell">0.00</td>
+            <td><input type="text" placeholder="Unit" class="unit-input"></td>
+            <td><button class="btn btn-danger btn-sm remove-row">Remove</button></td>
+          </tr>
+          <tr data-row-id="2">
+            <td><input type="text" placeholder="Enter category" class="category-input" value="Volume d'eau brute"></td>
+            <td><input type="date" class="date-input"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="a"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="b"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="c"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="d"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="e"></td>
+            <td class="total-cell">0.00</td>
+            <td><input type="text" placeholder="Unit" class="unit-input" value="m³"></td>
+            <td><button class="btn btn-danger btn-sm remove-row">Remove</button></td>
+          </tr>
+          <tr data-row-id="3">
+            <td><input type="text" placeholder="Enter category" class="category-input" value="Volume des eaux clarifiées"></td>
+            <td><input type="date" class="date-input"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="a"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="b"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="c"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="d"></td>
+            <td><input type="number" step="0.01" class="value-input" data-col="e"></td>
+            <td class="total-cell">0.00</td>
+            <td><input type="text" placeholder="Unit" class="unit-input" value="m³"></td>
+            <td><button class="btn btn-danger btn-sm remove-row">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="summary">
+      <h3>Summary</h3>
+      <div class="summary-stats">
+        <div class="stat">
+          <label>Total Rows:</label>
+          <span id="totalRows">3</span>
+        </div>
+        <div class="stat">
+          <label>Grand Total:</label>
+          <span id="grandTotal">0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="water_treatment_interface_updated.js"></script>
 </body>
 </html>
